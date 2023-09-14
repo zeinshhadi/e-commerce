@@ -4,7 +4,7 @@
 const clothingCategory = new Category({
   name: 'Clothing',
 });
-
+//
 clothingCategory.save((err, savedClothingCategory) => {
   if (err) {
     console.error('Error creating Clothing category:', err);
