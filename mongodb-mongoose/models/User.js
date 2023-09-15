@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 const Listing = require("./models/listing"); // Import the Listing model
 const Admin = require("./models/admin"); // Import the Admin model
 
-const userSchema = new mongoose.Schema({
+const userSchema = new Schema({
   username: {
     type: String,
     required: true,
@@ -41,3 +41,4 @@ const userSchema = new mongoose.Schema({
 });
 
 module.exports = mongoose.model("User", userSchema);
+export default Blog;
