@@ -1,7 +1,5 @@
-const mongoose = require("mongoose");
-const Listing = require("./models/listing"); // Import the Listing model
-const Admin = require("./models/admin"); // Import the Admin model
-
+import mongoose from "mongoose";
+const { Schema, model } = mongoose;
 const userSchema = new Schema({
   username: {
     type: String,
@@ -40,5 +38,5 @@ const userSchema = new Schema({
   purchases: [{ type: mongoose.Schema.Types.ObjectId, ref: "Listing" }],
 });
 
-module.exports = mongoose.model("User", userSchema);
-export default Blog;
+const User = model("User", userSchema);
+export default User;
