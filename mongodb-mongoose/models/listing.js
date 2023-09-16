@@ -1,7 +1,9 @@
-const mongoose = require("mongoose");
-const Admin = require("./models/admin");
+import mongoose from 'mongoose';
+import User from './User';
+import Admin from './admin';
+const {Schema,model}=mongoose;
 
-const listingSchema = new mongoose.Schema({
+const listingSchema = new Schema({
   title: {
     type: String,
     required: true,
@@ -51,4 +53,5 @@ const listingSchema = new mongoose.Schema({
   },
 });
 
-module.exports = mongoose.model("Listing", listingSchema);
+const Listing=model("Listing",listingSchema);
+export default Listing;

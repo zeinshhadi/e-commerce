@@ -1,6 +1,7 @@
-const mongoose = require("mongoose");
-const Listing = require("./models/listing.js");
-const reportSchema = new mongoose.Schema({
+import mongoose from "mongoose";
+import Listing from "./Listing";
+const {Schema,model}=mongoose;
+const reportSchema = new Schema({
   listing: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "Listing",
@@ -21,4 +22,5 @@ const reportSchema = new mongoose.Schema({
   },
 });
 
-module.exports = mongoose.model("Report", reportSchema);
+const Report=model("Report",reportSchema);
+export default Report;
