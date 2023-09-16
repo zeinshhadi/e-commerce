@@ -1,6 +1,5 @@
 const mongoose = require("mongoose");
-const Listing = require("./models/listing.js");
-const User = require("./models/user.js");
+const User = require("./models/User");
 const orderItemSchema = new mongoose.Schema({
   listing: {
     type: mongoose.Schema.Types.ObjectId,
