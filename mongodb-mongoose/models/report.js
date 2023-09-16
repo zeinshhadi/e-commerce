@@ -1,5 +1,4 @@
 import mongoose from "mongoose";
-import Listing from "./Listing";
 const {Schema,model}=mongoose;
 const reportSchema = new Schema({
   listing: {

@@ -1,8 +1,5 @@
 import mongoose from 'mongoose';
-import User from './User';
-import Admin from './admin';
 const {Schema,model}=mongoose;
-
 const listingSchema = new Schema({
   title: {
     type: String,

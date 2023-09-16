@@ -1,6 +1,4 @@
 import mongoose from 'mongoose';
-import User from './User.js';
-import Listing from './Listing.js';
 const {Schema,model}=mongoose;
 const orderItemSchema = new Schema({
   listing: {
