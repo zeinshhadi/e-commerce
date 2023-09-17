@@ -34,8 +34,10 @@ const userSchema = new Schema({
     required: true,
   },
 
-  posts: [{ type: mongoose.Schema.Types.ObjectId, ref: "Listing" }],
-  purchases: [{ type: mongoose.Schema.Types.ObjectId, ref: "Listing" }],
+  posts: [{ type: mongoose.Schema.Types.ObjectId,
+             ref: "Listing" }],
+  purchases: [{ type: mongoose.Schema.Types.ObjectId,
+               ref: "Listing" }],
 });
 
 const User = model("User", userSchema);
