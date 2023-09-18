@@ -19,11 +19,6 @@ const adminSchema = new Schema({
     required: true,
     minlength: 8,
   },
-  name: {
-    type: String,
-    required: true,
-    maxlength: 50,
-  },
   role: {
     type: String,
     enum: ["admin"],
