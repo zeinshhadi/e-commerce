@@ -18,6 +18,6 @@ await user1
   .catch((error) => {
     console.error("error", error);
   });
-// Find a single blog post
+
 const firstUser = await User.findOne({});
 console.log(firstUser);

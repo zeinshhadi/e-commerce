@@ -1,4 +1,3 @@
-const mongoose = require("mongoose");
 const express = require("express");
 const app = express();
 const port = 3000;
@@ -7,10 +6,9 @@ const dbConnect = require("../connectDB");
 
 app.get("/", (req, res) => {
   res.json({ name: "hanin" });
-  console.log("Hello Hanin");
 });
-app.post("/", (req, res) => {
-  res.json({ name: "maya" });
+app.get("/", (req, res) => {
+  res.json({ name: "asd" });
   console.log("Hello Hanin");
 });
 

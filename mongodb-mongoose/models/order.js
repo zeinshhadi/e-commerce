@@ -1,5 +1,6 @@
-import mongoose from 'mongoose';
-const {Schema,model}=mongoose;
+import mongoose from "mongoose";
+const { Schema, model } = mongoose;
+
 const orderItemSchema = new Schema({
   listing: {
     type: mongoose.Schema.Types.ObjectId,
@@ -37,5 +38,5 @@ const orderSchema = new mongoose.Schema({
   feedback: String,
 });
 
-const Order=module("Order",orderSchema);
+const Order = module("Order", orderSchema);
 export default Order;
