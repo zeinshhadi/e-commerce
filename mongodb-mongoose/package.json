@@ -6,11 +6,12 @@
   "scripts": {
     "dev": "nodemon index.js"
   },
-  "type": "module",
+  "type": "commonjs",
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "express": "^4.18.2",
     "mongoose": "^7.5.1"
   },
   "devDependencies": {
