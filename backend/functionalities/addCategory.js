@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 import Category from "../models/Category.js"; // Import the Category model
-import '../connectDB.js';
+import '../config/connectDB.js';
 
 // Create categories for your e-commerce website
 const clothingCategory = new Category({

@@ -1,5 +1,5 @@
 import User from "../models/User.js";
-import "../connectDB.js";
+import "../config/connectDB.js";
 
 const user1 = await User.create({
   username: "Zein ",
