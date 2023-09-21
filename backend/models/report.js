@@ -1,4 +1,4 @@
-import mongoose from "mongoose";
+const mongoose=require('mongoose');
 const {Schema,model}=mongoose;
 const reportSchema = new Schema({
   listing: {
@@ -22,4 +22,4 @@ const reportSchema = new Schema({
 });
 
 const Report = model("Report", reportSchema);
-export default Report;
+module.exports=Report;

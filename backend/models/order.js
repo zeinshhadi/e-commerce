@@ -1,4 +1,4 @@
-import mongoose from "mongoose";
+const mongoose=require('mongoose');
 const { Schema, model } = mongoose;
 
 const orderItemSchema = new Schema({
@@ -38,5 +38,5 @@ const orderSchema = new mongoose.Schema({
   feedback: String,
 });
 
-const Order = module("Order", orderSchema);
-export default Order;
+const Order = model("Order", orderSchema);
+module.exports=Order;

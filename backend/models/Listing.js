@@ -1,4 +1,4 @@
-import mongoose from 'mongoose';
+const mongoose=require('mongoose');
 const {Schema,model}=mongoose;
 const listingSchema = new Schema({
   title: {
@@ -51,4 +51,4 @@ const listingSchema = new Schema({
 });
 
 const Listing=model("Listing",listingSchema);
-export default Listing;
+module.exports=Listing;
