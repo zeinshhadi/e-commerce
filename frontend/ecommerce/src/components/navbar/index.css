@@ -15,20 +15,22 @@
 }
 
 header {
-
 	max-width: 100%;
-	background-image: url(C:\Users\Etisalat\e-commerce\frontend\ecommerce\src\assets\hero.jpg);
-	height: 100vh;
+	height: 70px;
 	background-repeat: no-repeat;
 	background-size: cover;
 	position: relative;
-}
+	background-color: #29335c;}
+
 nav{
 	background-color: transparent;
 	color: var(--textColor);
 
 }
-.header-container{	position: absolute;}
+.header-container{	
+	position: absolute;
+	margin-top: 20px;
+}
 
 nav a {
 	margin: 0 1rem;
