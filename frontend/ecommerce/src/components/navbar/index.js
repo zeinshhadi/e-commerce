@@ -1,42 +1,49 @@
 import { useRef } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
 import "./index.css";
+import logo from "../../assets/images/logo.png";
+import { Link } from "react-router-dom";
+import Search from '../searchBar/index'
 
 function Navbar() {
-	const navRef = useRef();
+  const navRef = useRef();
 
-	const showNavbar = () => {
-		navRef.current.classList.toggle(
-			"responsive_nav"
-		);
-	};
+  const showNavbar = () => {
+    navRef.current.classList.toggle(
+      "responsive_nav"
+    );
+  };
+  const handleSearch = (query) => {
+    // Implement your search logic here, e.g., fetching data based on the query
+    console.log(`Searching for: ${query}`);
+  };
 
-	return (
-		<header>
-			<div class="header-container">
-
-			<div><h3>LOGO</h3></div>
-
-			<nav ref={navRef}>
-			
-				<a href="/#">Home</a>
-				<a href="/#">My work</a>
-				<a href="/#">Blog</a>
-				<a href="/#">About me</a>
-				<button
-					className="nav-btn nav-close-btn"
-					onClick={showNavbar}>
-					<FaTimes />
-				</button>
-			</nav>
-			<button
-				className="nav-btn"
-				onClick={showNavbar}>
-				<FaBars />
-			</button>
-					</div>
-		</header>
-	);
+  return (
+    <header>
+      <div class="header-container">
+        <div>
+          {/* Use the imported image */}
+          <img src={logo} alt="logo" />
+        </div>
+		<Search onSearch={handleSearch}/>
+        <nav ref={navRef}>
+          <Link to="/">Home</Link>
+          <Link to="/categories">Categories</Link>
+          <Link to="/login">Login</Link>
+          <Link to="/sell">Sell</Link>
+          <button
+            className="nav-btn nav-close-btn"
+            onClick={showNavbar}
+          >
+            <FaTimes />
+          </button>
+        </nav>
+        <button className="nav-btn" onClick={showNavbar}>
+          <FaBars />
+        </button>
+      </div>
+    </header>
+  );
 }
 
 export default Navbar;
