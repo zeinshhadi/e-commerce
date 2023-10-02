@@ -1,7 +1,7 @@
 import { useRef } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
 import "./index.css";
-import logo from "../../assets/images/logo.png";
+// import logo from "../../assets/images/logo.png";
 import { Link } from "react-router-dom";
 import Search from '../searchBar/index'
 
@@ -20,12 +20,11 @@ function Navbar() {
 
   return (
     <header>
-      <div class="header-container">
-        <div>
-          {/* Use the imported image */}
-          <img src={logo} alt="logo" />
+      <div className="logo-header">
+      <Search onSearch={handleSearch} className="search-component"/>
+        <p className="logo">Shop Nexa</p>
         </div>
-		<Search onSearch={handleSearch}/>
+      <div class="header-container">
         <nav ref={navRef}>
           <Link to="/">Home</Link>
           <Link to="/categories">Categories</Link>
