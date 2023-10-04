@@ -30,7 +30,10 @@ const orderSchema = new mongoose.Schema({
   },
   items: [orderItemSchema],
 
-  shippingAddress: String,
+  shippingAddress:{ 
+    type: String,
+    required:true,
+  },
   orderDate: {
     type: Date,
     default: Date.now,

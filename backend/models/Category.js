@@ -10,6 +10,11 @@ const categorySchema = new Schema({
     type: mongoose.Schema.Types.ObjectId,
     ref: "Category",
   },
+  image: [
+    {
+      type: String, // Assuming image URLs as strings
+    },
+  ],
 });
 
 const Category = model("Category", categorySchema);

@@ -16,8 +16,15 @@ const listingSchema = new Schema({
     required: true,
     min: 0,
   },
+  quantityStock:{
+    type: Number,
+    required: true,
+    min: 0,
+  },
+
   category: {
-    type: [String], // Assuming it's an array of category tags
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "Category",
     required: true,
   },
   seller: {

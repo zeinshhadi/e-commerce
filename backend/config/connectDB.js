@@ -1,6 +1,7 @@
 const mongoose = require("mongoose");
 const url =
-  "mongodb+srv://zeinshhadi:123123321@e-commerce.8fq6zle.mongodb.net/shopnexa";
+  "mongodb+srv://haneen:123123321@e-commercee.nlkrpop.mongodb.net/shopnexa";
+
 // mongoose.connect(url);
 
 const connectdb = async (dbURL) => {
