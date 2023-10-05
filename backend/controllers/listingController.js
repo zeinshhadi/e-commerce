@@ -55,6 +55,15 @@ exports.getAllListings = async (req, res) => {
   }
 };
 
+exports.getListingsByCategory=async(req,res)=>{
+  try {
+    const category=req.body.category;
+    const listings = await Listing.find({category:category});
+    res.status(200).json(listings);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+};
 // Controller to update a listing by ID
 exports.updateListingById = async (req, res) => {
   try {

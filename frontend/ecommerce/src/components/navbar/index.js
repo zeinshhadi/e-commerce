@@ -27,7 +27,7 @@ function Navbar() {
       <div class="header-container">
         <nav ref={navRef}>
           <Link to="/">Home</Link>
-          <Link to="/categories">Categories</Link>
+          <Link to="/products">Products</Link>
           <Link to="/login">Login</Link>
           <Link to="/sell">Sell</Link>
           <button

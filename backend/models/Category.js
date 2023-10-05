@@ -10,7 +10,7 @@ const categorySchema = new Schema({
     type: mongoose.Schema.Types.ObjectId,
     ref: "Category",
   },
-  image: [
+  images: [
     {
       type: String, // Assuming image URLs as strings
     },

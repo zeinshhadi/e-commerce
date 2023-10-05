@@ -5,6 +5,8 @@ const router=express.Router();
 // Create a new listing
 router.post('/listings', listingController.createListing);
 
+router.get('/listings/:category',listingController.getListingsByCategory);
+
 // Get all listings
 router.get('/listings', listingController.getAllListings);
 

@@ -5,6 +5,7 @@ const categoryController = require('../controllers/categoryController.js');
 // Create a new category
 router.post('/categories', categoryController.addCategory);
 
+
 // Delete a category by names
 router.delete('/categories/:name', categoryController.deleteCategory);
 
