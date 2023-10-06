@@ -7,8 +7,14 @@ const listingRouter=require('./routes/listingRoute.js');
 const orderRoute=require('./routes/orderRoute.js');
 const reportRoute=require('./routes/orderRoute.js');
 const cors = require("cors");
-// Initialize Express app
 const app = express();
+app.use(express.json());
+
+// Initialize Express app
+
+//const loginRoute = require('./routes/loginRoute');
+//app.use('/api', loginRoute); // Replace '/api' with your desired route prefix
+
 app.use(cors());
 // Define your routes
 app.use('/api', userRouter); // Include your user route (and other routes) here

@@ -5,7 +5,6 @@ const userSchema = new Schema({
   username: {
     type: String,
     required: true,
-    unique: true,
     minlength: 3,
     maxlength: 35,
   },
@@ -20,27 +19,27 @@ const userSchema = new Schema({
     required: true,
     minlength: 8,
   },
-  role: {
-    type: String,
-    default: "user",
-  },
-  phoneNumber: {
-    type: String,
-    validate: {
-      validator: function (v) {
-        // Custom validation for phone number format (you can customize this)
-        return /^\d{8}$/.test(v); // Assumes an 8-digit phone number
-      },
-      message: "Phone number must be a valid 8-digit number.",
-    },
-  },
-  location: {
-    type: String,
-    required: true,
-  },
-  posts: [{ type: mongoose.Schema.Types.ObjectId, ref: "Listing" }],
-  purchases: [{ type: mongoose.Schema.Types.ObjectId, ref: "Listing" }],
-});
+//   role: {
+//     type: String,
+//     default: "user",
+//   },
+//   phoneNumber: {
+//     type: String,
+//     validate: {
+//       validator: function (v) {
+//         // Custom validation for phone number format (you can customize this)
+//         return /^\d{8}$/.test(v); // Assumes an 8-digit phone number
+//       },
+//       message: "Phone number must be a valid 8-digit number.",
+//     },
+//   },
+//   location: {
+//     type: String,
+//     required: true,
+//   },
+//   posts: [{ type: mongoose.Schema.Types.ObjectId, ref: "Listing" }],
+//   purchases: [{ type: mongoose.Schema.Types.ObjectId, ref: "Listing" }],
+ });
 
 const User = model("User", userSchema);
 module.exports = User;
