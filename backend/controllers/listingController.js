@@ -1,4 +1,7 @@
-const Listing = require('../models/Listing');
+const mongoose = require('mongoose');
+const { Schema, model } = mongoose;
+const Listing = require('../models/Listing'); // Import the Listing model
+const Category = require('../models/Category'); // Import the Category model
 
 // Controller to create a new listing
 exports.createListing = async (req, res) => {
@@ -7,20 +10,30 @@ exports.createListing = async (req, res) => {
       title,
       description,
       price,
-      category,
+      categoryName,
       seller,
       location,
       images,
+      quantityStock, // Include quantityStock in the destructuring
     } = req.body;
 
+    // Find the category by name
+    const category = await Category.findOne({ name: categoryName });
+
+    if (!category) {
+      return res.status(404).json({ error: 'Category not found' });
+    }
+
+    // Create the new listing using the category's ID
     const newListing = new Listing({
       title,
       description,
       price,
-      category,
+      category: category._id,
       seller,
       location,
       images,
+      quantityStock, // Include quantityStock in the new listing
     });
 
     await newListing.save();
@@ -30,20 +43,6 @@ exports.createListing = async (req, res) => {
   }
 };
 
-// Controller to get a single listing by ID
-exports.getListingById = async (req, res) => {
-  try {
-    const listing = await Listing.findById(req.params.listingId);
-
-    if (!listing) {
-      return res.status(404).json({ message: 'Listing not found' });
-    }
-
-    res.status(200).json(listing);
-  } catch (error) {
-    res.status(500).json({ error: error.message });
-  }
-};
 
 // Controller to get all listings
 exports.getAllListings = async (req, res) => {
@@ -64,6 +63,20 @@ exports.getListingsByCategory=async(req,res)=>{
     res.status(500).json({ error: error.message });
   }
 };
+exports.getListingById = async (req, res) => {
+  try {
+    const listing = await Listing.findById(req.params.listingId);
+
+    if (!listing) {
+      return res.status(404).json({ message: 'Listing not found' });
+    }
+
+    res.status(200).json(listing);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+};
+
 // Controller to update a listing by ID
 exports.updateListingById = async (req, res) => {
   try {

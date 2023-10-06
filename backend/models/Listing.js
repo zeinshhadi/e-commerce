@@ -30,11 +30,11 @@ const listingSchema = new Schema({
   seller: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "User",
-    required: true,
+    // required: true,
   },
   location: {
     type: String,
-    required: true,
+    // required: true,
   },
   images: [
     {

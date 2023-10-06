@@ -10,6 +10,7 @@ const cors = require("cors");
 // Initialize Express app
 const app = express();
 app.use(cors());
+app.use(express.json());
 // Define your routes
 app.use('/api', userRouter); // Include your user route (and other routes) here
 app.use('/api',categoryRouter);

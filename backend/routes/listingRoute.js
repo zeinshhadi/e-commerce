@@ -1,11 +1,12 @@
-const express=require('express');
-const listingController=require('../controllers/listingController');
-const router=express.Router();
+const express = require('express');
+const listingController = require('../controllers/listingController');
+const router = express.Router();
 
 // Create a new listing
 router.post('/listings', listingController.createListing);
 
-router.get('/listings/:category',listingController.getListingsByCategory);
+// Get listings by category
+router.get('/listings/category/:category', listingController.getListingsByCategory);
 
 // Get all listings
 router.get('/listings', listingController.getAllListings);
