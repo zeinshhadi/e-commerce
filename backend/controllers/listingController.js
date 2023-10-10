@@ -54,15 +54,22 @@ exports.getAllListings = async (req, res) => {
   }
 };
 
-exports.getListingsByCategory=async(req,res)=>{
+exports.getListingsByCategory = async (req, res) => {
   try {
-    const category=req.body.category;
-    const listings = await Listing.find({category:category});
+    const categoryName = req.params.category; // Note this change
+    // First, find the category object by name
+    const categoryObj = await Category.findOne({ name: categoryName });
+    if (!categoryObj) {
+      return res.status(404).json({ error: 'Category not found' });
+    }
+    // Then find listings by the category object ID
+    const listings = await Listing.find({ category: categoryObj._id }).populate('category');
     res.status(200).json(listings);
   } catch (error) {
     res.status(500).json({ error: error.message });
   }
 };
+
 exports.getListingById = async (req, res) => {
   try {
     const listing = await Listing.findById(req.params.listingId);

@@ -1,6 +1,6 @@
 import React from 'react';
 import Navbar from '../navbar';
-import ImageSlideshow from '../../components/ImageSlideshow/ImageSlideshow'; // Update the import path according to your folder structure
+import ImageSlideshow from '../../components/ImageSlideshow/ImageSlideshow';
 import './index.css';
 
 

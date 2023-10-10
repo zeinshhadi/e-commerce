@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Header from '../../components/header';
 import Categories from '../../components/categories';
 import ProductsOverview from '../../components/products_overview';
+import Footer from '../../components/footer';
 import scrollIcon from '../../assets/images/scroll-to_icon.png';
 import './home.css';
 
@@ -30,6 +31,7 @@ export default function Home() {
 
       {/* ProductsOverview component */}
       {showOverview && <ProductsOverview />}
+      <Footer/>
     </>
   );
 }

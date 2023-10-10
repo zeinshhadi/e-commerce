@@ -1,0 +1,12 @@
+.cart-icon{
+    font-size: 29px;
+    color: rgb(196,164,132);
+}
+
+
+
+@media only screen and (max-width: 1024px) {
+    .cart-icon{
+    font-size: 23px;
+    }    
+}

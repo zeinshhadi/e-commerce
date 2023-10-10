@@ -1,16 +1,16 @@
 import React from 'react'
-import Login from '../components/login/index'
+import Register from '../components/register';
 import Navbar from '../components/navbar/index';
 import Footer from '../components/footer/index';
 
-function login() {
+function register() {
   return (
     <div>
       <Navbar/>
-      <Login/>
+      <Register/>
       <Footer/>
     </div>
   )
 }
 
-export default login
+export default register
