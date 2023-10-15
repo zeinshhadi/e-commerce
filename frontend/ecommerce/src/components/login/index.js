@@ -1,10 +1,13 @@
-import React, { useState } from 'react';
-import { useNavigate, Link } from 'react-router-dom'; 
-import './index.css'; 
+import React, { useState, useContext } from 'react';
+import { useNavigate, Link } from 'react-router-dom';
+import { AuthContext } from '../authContext'; // Replace with the correct path to your AuthContext file
+import './index.css';
 import BackImage from '../../assets/images/BLUBERRI.jpg';
 
 const LoginPage = () => {
   const navigate = useNavigate();
+  const authContext = useContext(AuthContext);
+
   const [formData, setFormData] = useState({
     email: '',
     password: '',
@@ -32,7 +35,7 @@ const LoginPage = () => {
 
       if (response.ok) {
         const data = await response.json();
-        console.log(data);
+        console.log("response login", data);
 
         if (data.role === 'admin') {
           console.log('Navigating to dashboard...');
@@ -41,6 +44,9 @@ const LoginPage = () => {
           console.log('Navigating to home...');
           navigate('/');
         }
+
+        
+        authContext.login(data.user, data.role, data.token);
       } else {
         console.error('Authentication failed:', response.status);
       }
@@ -50,7 +56,7 @@ const LoginPage = () => {
   };
 
   return (
-    <div className="container mt-5 " style={{backgroundImage: `url(${BackImage})`}}>
+    <div className="container mt-5" style={{ backgroundImage: `url(${BackImage})` }}>
       <div className="row justify-content-center">
         <div className="col-md-6">
           <div className="card1">

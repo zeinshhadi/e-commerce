@@ -14,6 +14,8 @@ const cartReducer = (state, action) => {
         ? { ...item, quantity: action.payload.quantity } 
         : item
       );
+    case 'EMPTY_CART':
+        return [];
     default:
       return state;
   }
@@ -22,8 +24,12 @@ const cartReducer = (state, action) => {
 export const CartProvider = ({ children }) => {
   const [cart, dispatch] = useReducer(cartReducer, []);
 
+  const emptyCart = () => {
+    dispatch({ type: 'EMPTY_CART' });
+  };
+  
   return (
-    <CartContext.Provider value={{ cart, dispatch }}>
+    <CartContext.Provider value={{ cart, emptyCart, dispatch }}>
       {children}
     </CartContext.Provider>
   );

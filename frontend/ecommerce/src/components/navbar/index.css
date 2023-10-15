@@ -22,16 +22,12 @@
 
 header {
   background-color: whitesmoke;
-  max-width: 100%;
   height: 120px;
-  background-repeat: no-repeat;
-  background-size: cover;
   position: fixed;
-  width: 100%; 
-  top: 0; 
-  z-index: 1000;
+  width: 100%;
+  top: 0;
+  z-index: 1000; /* Should be below modal and overlay */
   transition: background-color 0.3s;
-  
 }
 
 .header-content {
@@ -41,8 +37,6 @@ header {
 nav {
   background-color: transparent;
   color: var(--textColor);
-  margin-left: 500px;
-  margin-top: 10px;
   display: flex;
   align-items: center;
 }
@@ -52,18 +46,15 @@ nav {
 }
 
 .header-container {
-  position: absolute;
   display: flex;
   align-items: center;
+  justify-content: space-between;
+  padding: 0 20px; /* Adding padding to header container */
 }
 
 .logo {
   font-family: 'Cormorant SC', serif;
   font-size: 40px;
-  text-align: center; 
-  flex-grow: 1; 
-  margin-right: 200px;
-  
 }
 
 .logo-header {
@@ -83,10 +74,9 @@ nav a {
   margin: 0 2.5rem;
   color: var(--textColor);
   text-decoration: none;
-  position: relative;
   font-size: 20px;
   font-family: 'Nanum Myeongjo', serif;
-  
+  position: relative;
 }
 
 nav a::before {
@@ -128,7 +118,10 @@ header .nav-btn {
 
 
 @media only screen and (max-width: 1024px) {
-
+   
+  .header-container {
+    padding: 0 10px;
+}
   .nav-cart{
     margin-right: 37px;
     margin-top: 10px;
@@ -171,7 +164,7 @@ header .nav-btn {
 	}
   
 	nav a {
-	  font-size: 1.5rem;
+	  font-size: 18px;
 	}
 
   nav{
@@ -185,10 +178,9 @@ header .nav-btn {
     padding: 0 10px;
    }
 
-  .logo{
-    margin-right: 0;
+   .logo {
     font-size: 20px;
-
-  }
+    margin-right: 0;
+}
 
   }

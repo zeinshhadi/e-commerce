@@ -1,8 +1,16 @@
 .cart-icon{
     font-size: 29px;
     color: rgb(196,164,132);
+   
 }
-
+.cart-length{
+    margin-right: 30px;
+}
+.poweroff{
+    font-size: 20px;
+    color: black;
+    margin-bottom: 3px;
+}
 
 
 @media only screen and (max-width: 1024px) {

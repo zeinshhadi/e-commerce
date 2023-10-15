@@ -11,7 +11,7 @@ const orderItemSchema = new Schema({
     type: Number,
     required: true,
   },
-  totalPrice: {
+  pricePerLine: {
     type: Number,
     required: true,
   },
@@ -23,11 +23,7 @@ const orderSchema = new mongoose.Schema({
     ref: "User",
     required: true,
   },
-  seller: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: "User",
-    required: true,
-  },
+  
   items: [orderItemSchema],
 
   shippingAddress:{ 
@@ -38,7 +34,10 @@ const orderSchema = new mongoose.Schema({
     type: Date,
     default: Date.now,
   },
-  feedback: String,
+  totalPrice: {
+    type: Number,
+    required: true,
+  },
 });
 
 const Order = model("Order", orderSchema);

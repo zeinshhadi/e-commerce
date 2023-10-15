@@ -14,11 +14,12 @@ function Registration() {
 
   const [confirmPassword, setConfirmPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
-
   const [validationErrors, setValidationErrors] = useState({
+    usernameError: "",
     emailError: "",
     passwordError: "",
     confirmPasswordError: "",
+    locationError: "",
   });
 
   const navigate = useNavigate();
@@ -30,62 +31,72 @@ function Registration() {
       [name]: value,
     });
 
-    // Clear validation errors when the input value changes
+    // Clear the error message and individual error for this field
+    setErrorMessage("");
     setValidationErrors({
       ...validationErrors,
       [`${name}Error`]: "",
     });
-
-    // Clear the error message when any input value changes
-    setErrorMessage("");
   };
 
   const handleConfirmPasswordChange = (e) => {
     setConfirmPassword(e.target.value);
 
-    // Clear validation errors when the input value changes
+    // Clear the error message and individual error for confirm password
+    setErrorMessage("");
     setValidationErrors({
       ...validationErrors,
       confirmPasswordError: "",
     });
-
-    // Clear the error message when confirm password changes
-    setErrorMessage("");
   };
 
   const validateEmail = () => {
-    const emailRegex = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
-    if (!emailRegex.test(formData.email)) {
-      setValidationErrors({
-        ...validationErrors,
-        emailError: "Please enter a valid email address",
-      });
-      setErrorMessage("Please fix the errors before registering."); // Set error message here
-      return false;
+    const { email } = formData;
+    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    const errors = [];
+
+    if (!emailRegex.test(email)) {
+      errors.push("Invalid email address");
     }
-    return true; // Return true for valid email
+
+    return errors;
   };
 
   const validatePassword = () => {
-    if (formData.password !== confirmPassword) {
-      setValidationErrors({
-        ...validationErrors,
-        passwordError: "Passwords do not match",
-        confirmPasswordError: "Passwords do not match",
-      });
-      return false;
+    const { password } = formData;
+    const errors = [];
+
+    if (password.length < 8) {
+      errors.push("Password must be at least 8 characters long");
     }
-    return true; // Return true for matching passwords
+
+    return errors;
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     // Validate email and password before submission
-    const isEmailValid = validateEmail();
-    const isPasswordValid = validatePassword();
+    const emailErrors = validateEmail();
+    const passwordErrors = validatePassword();
 
-    if (!isEmailValid || !isPasswordValid) {
+    if (emailErrors.length > 0 || passwordErrors.length > 0) {
+      const errors = [...emailErrors, ...passwordErrors];
+      setErrorMessage("Please fix the errors before registering.");
+      setValidationErrors({
+        emailError: emailErrors.join(", "),
+        passwordError: passwordErrors.join(", "),
+        confirmPasswordError: "",
+        locationError: "",
+      });
+      return;
+    }
+
+    if (formData.password !== confirmPassword) {
+      setValidationErrors({
+        ...validationErrors,
+        confirmPasswordError: "Passwords do not match",
+      });
       setErrorMessage("Please fix the errors before registering.");
       return;
     }
@@ -113,7 +124,12 @@ function Registration() {
   return (
     <div
       className="container mt-5 "
-      style={{ backgroundImage: `url(${BackImage})` }}
+      style={{
+        backgroundImage: `url(${BackImage})`,
+        backgroundRepeat: "no-repeat",
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+      }}
     >
       <div className="row justify-content-center">
         <div className="col-md-6">
@@ -136,9 +152,16 @@ function Registration() {
                     name="username"
                     value={formData.username}
                     onChange={handleChange}
-                    className="form-control"
+                    className={`form-control ${
+                      validationErrors.usernameError ? "error" : ""
+                    }`}
                     required
                   />
+                  {validationErrors.usernameError && (
+                    <span className="error-message">
+                      {validationErrors.usernameError}
+                    </span>
+                  )}
                 </div>
                 <div className="form-group">
                   <label htmlFor="email">Email:</label>
@@ -152,7 +175,6 @@ function Registration() {
                     }`}
                     required
                   />
-
                   {validationErrors.emailError && (
                     <span className="error-message">
                       {validationErrors.emailError}
@@ -168,9 +190,14 @@ function Registration() {
                     onChange={handleChange}
                     required
                     className={`form-control ${
-                      validationErrors.emailError ? "error" : ""
+                      validationErrors.passwordError ? "error" : ""
                     }`}
                   />
+                  {validationErrors.passwordError && (
+                    <span className="error-message">
+                      {validationErrors.passwordError}
+                    </span>
+                  )}
                 </div>
                 <div className="form-group">
                   <label htmlFor="confirmpassword">Confirm Password:</label>
@@ -181,7 +208,7 @@ function Registration() {
                     onChange={handleConfirmPasswordChange}
                     required
                     className={`form-control ${
-                      validationErrors.emailError ? "error" : ""
+                      validationErrors.confirmPasswordError ? "error" : ""
                     }`}
                   />
                   {validationErrors.confirmPasswordError && (
@@ -197,9 +224,16 @@ function Registration() {
                     name="location"
                     value={formData.location}
                     onChange={handleChange}
-                    className="form-control"
+                    className={`form-control ${
+                      validationErrors.locationError ? "error" : ""
+                    }`}
                     required
                   />
+                  {validationErrors.locationError && (
+                    <span className="error-message">
+                      {validationErrors.locationError}
+                    </span>
+                  )}
                 </div>
                 <button
                   type="submit"

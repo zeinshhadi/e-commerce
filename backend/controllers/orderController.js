@@ -5,18 +5,16 @@ const createOrder = async (req, res) => {
   try {
     const {
       buyer,
-      seller,
       items,
       shippingAddress,
-      feedback
+      totalPrice
     } = req.body;
 
     const newOrder = new Order({
       buyer,
-      seller,
       items,
       shippingAddress,
-      feedback
+      totalPrice
     });
 
     await newOrder.save();

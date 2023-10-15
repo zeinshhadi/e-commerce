@@ -14,7 +14,7 @@ const registerUser = async (req, res) => {
     }
 
     const hashedPassword = await bcrypt.hash(password, 10);
-
+    console.log("hashedPassword", hashedPassword)
     const newUser = new User({
       username,
       email,
@@ -23,11 +23,12 @@ const registerUser = async (req, res) => {
       phoneNumber,
       location,
     });
-
+    console.log("newUser", newUser);
     await newUser.save();
 
-    const token = jwt.sign({ userId: newUser._id }, "your-secret-key");
-
+    console.log("newUser._id", newUser._id)
+    const token = jwt.sign({ userId: newUser._id }, "RAZOV");
+    console.log("token", token)
     return res
       .status(201)
       .json({ message: "User registered successfully", token });
@@ -55,11 +56,11 @@ const loginUser = async (req, res) => {
     if (!passwordMatch) {
       return res.status(401).json({ message: "Invalid password" });
     }
-
+    const token = jwt.sign({ userId: user._id }, "RAZOV");
     // Include the user's role in the response
     return res
       .status(200)
-      .json({ message: "Login successful", role: user.role });
+      .json({ message: "Login successful", user: user, role: user.role, token:token });
   } catch (error) {
     console.error("Error during login:", error);
     return res

@@ -8,7 +8,6 @@ import Cart from '../cart/index';
 function Navbar() {
   const navRef = useRef();
   const [isSticky, setIsSticky] = useState(false);
-
   const showNavbar = () => {
     navRef.current.classList.toggle(
       "responsive_nav"
@@ -46,8 +45,6 @@ function Navbar() {
         <nav ref={navRef}>
           <Link to="/">Home</Link>
           <Link to="/products">Products</Link>
-          <Link to="/login">Login</Link>
-          <Link to="/sell">Sell</Link>
           <button
             className="nav-btn nav-close-btn"
             onClick={showNavbar}
