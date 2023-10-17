@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { AuthContext } from '../authContext';
 import { useContext } from 'react'
+import Overview from './overview';
 
 function DashboardPanel() {
   const { user, role, loading  } = useContext(AuthContext);
@@ -19,9 +20,9 @@ function DashboardPanel() {
   return (
     <>
       {loading ? (
-        <div>Loading...</div> // You can display a loading message or spinner here
+        <div>Loading...</div> 
       ) : access ? (
-        <div>Dashboard</div>
+        <Overview/>
       ) : (
         <>
           <div>No access</div>

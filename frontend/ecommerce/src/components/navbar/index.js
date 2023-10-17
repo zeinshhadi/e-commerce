@@ -42,7 +42,7 @@ function Navbar() {
         </div>
       </div>
       <div className="header-container">
-        <nav ref={navRef}>
+        <nav ref={navRef} className="navComponent">
           <Link to="/">Home</Link>
           <Link to="/products">Products</Link>
           <button

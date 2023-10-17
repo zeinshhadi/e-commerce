@@ -34,7 +34,7 @@ header {
   margin-top: 90px; 
 }
 
-nav {
+.navComponent {
   background-color: transparent;
   color: var(--textColor);
   display: flex;
@@ -70,7 +70,7 @@ nav {
 }
 
 
-nav a {
+.navComponent a {
   margin: 0 2.5rem;
   color: var(--textColor);
   text-decoration: none;
@@ -79,7 +79,7 @@ nav a {
   position: relative;
 }
 
-nav a::before {
+.navComponent a::before {
   content: "";
   position: absolute;
   bottom: -8px;
@@ -90,7 +90,7 @@ nav a::before {
   transition: width 0.3s ease;
 }
 
-nav a:hover::before {
+.navComponent a:hover::before {
   width: 100%;
 }
 
@@ -137,7 +137,7 @@ header .nav-btn {
     font-size: 30px;
 	}
   
-	header nav {
+	header .navComponent {
 	  position: fixed;
 	  top: -100vh;
 	  left: 0;
@@ -157,17 +157,17 @@ header .nav-btn {
 	  transform: translateY(100vh);
 	}
   
-	nav .nav-close-btn {
+.navComponent .nav-close-btn {
 	  position: absolute;
 	  top: 2rem;
 	  right: 2rem;
 	}
   
-	nav a {
+	.navComponen a {
 	  font-size: 18px;
 	}
 
-  nav{
+  .navComponen{
     margin-left: 0;
   }
   header{

@@ -1,0 +1,17 @@
+.sideBarComp {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    bottom: 0 !important;
+    width: 200px !important;
+    background-color: rgb(196, 164, 132) !important;
+    border-right: 1px solid #ccc !important;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2) !important;
+    z-index: 1 !important;
+}
+
+.menu-item {
+    font-size: 18px;
+    padding: 10px;
+}
+
