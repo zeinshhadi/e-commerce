@@ -51,6 +51,7 @@ const listingSchema = new Schema({
     enum: ["pending", "approved", "denied"],
     default: "pending",
   },
+  
   adminApprover: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "Admin",

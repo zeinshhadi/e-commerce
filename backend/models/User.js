@@ -33,10 +33,7 @@ const userSchema = new Schema({
       },
       message: "Phone number must be a valid 8-digit number.",
     },
-  },
-  location: {
-    type: String,
-    required: true,
+  
   },
   posts: [{ type: mongoose.Schema.Types.ObjectId, ref: "Listing" }],
   purchases: [{ type: mongoose.Schema.Types.ObjectId, ref: "Listing" }],

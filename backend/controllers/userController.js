@@ -5,7 +5,7 @@ const User =require("../models/User"); // Adjust the import path as needed
 // Register a new user
 const registerUser = async (req, res) => {
   try {
-    const { username, email, password, role, phoneNumber, location } = req.body;
+    const { username, email, password, role, phoneNumber } = req.body;
 
     // Check if the email already exists in the database
     const existingUser = await User.findOne({ email });
@@ -21,7 +21,7 @@ const registerUser = async (req, res) => {
       password: hashedPassword,
       role,
       phoneNumber,
-      location,
+    
     });
     console.log("newUser", newUser);
     await newUser.save();

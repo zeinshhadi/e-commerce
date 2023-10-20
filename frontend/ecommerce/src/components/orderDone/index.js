@@ -1,6 +1,6 @@
 import React from "react";
 import "./index.css";
-import { faTrash } from "@fortawesome/free-solid-svg-icons";
+import { faTimes } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 function OrderDone({ orderDoneClose }) {
@@ -8,7 +8,7 @@ function OrderDone({ orderDoneClose }) {
   return (
     <div className="order-modal">
         <FontAwesomeIcon
-            icon={faTrash}
+            icon={faTimes}
             onClick={orderDoneClose}
             className="close-icon1"
         />

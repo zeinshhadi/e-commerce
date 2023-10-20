@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import { faTrash } from "@fortawesome/free-solid-svg-icons";
+import { faTimes } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./index.css";
 
@@ -63,7 +63,7 @@ function OrderModal({user, cart = [], onClose, emptyCart, openOrderDone }) {
   return (
     <div className="order-modal">
       <FontAwesomeIcon
-        icon={faTrash}
+        icon={faTimes}
         onClick={onClose}
         className="close-icon1"
       />

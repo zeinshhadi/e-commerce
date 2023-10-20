@@ -10,26 +10,26 @@ exports.createListing = async (req, res) => {
       title,
       description,
       price,
-      categoryName,
+      category, 
       seller,
       location,
       images,
-      quantityStock, // Include quantityStock in the destructuring
+      quantityStock, 
     } = req.body;
 
-    // Find the category by name
-    const category = await Category.findOne({ name: categoryName });
+    // Use the provided category ID directly
+    const categoryObj = await Category.findById(category);
 
-    if (!category) {
+    if (!categoryObj) {
       return res.status(404).json({ error: 'Category not found' });
     }
 
-    // Create the new listing using the category's ID
+    // Create the new listing using the provided category's ID
     const newListing = new Listing({
       title,
       description,
       price,
-      category: category._id,
+      category: categoryObj._id,
       seller,
       location,
       images,
@@ -47,7 +47,7 @@ exports.createListing = async (req, res) => {
 // Controller to get all listings
 exports.getAllListings = async (req, res) => {
   try {
-    const listings = await Listing.find();
+    const listings = await Listing.find().sort({ title: -1 });
     res.status(200).json(listings);
   } catch (error) {
     res.status(500).json({ error: error.message });

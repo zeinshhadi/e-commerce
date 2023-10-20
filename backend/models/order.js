@@ -38,6 +38,11 @@ const orderSchema = new mongoose.Schema({
     type: Number,
     required: true,
   },
+  adminApprovalStatus: {
+    type: String,
+    enum: ["pending", "approved", "denied"],
+    default: "pending",
+  },
 });
 
 const Order = model("Order", orderSchema);

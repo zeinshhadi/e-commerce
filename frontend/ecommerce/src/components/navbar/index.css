@@ -69,6 +69,10 @@ header {
   margin-right: 10px; 
 }
 
+.header-container .navComponent{
+  padding-top: 10px;
+  padding-left: 95px;
+}
 
 .navComponent a {
   margin: 0 2.5rem;
@@ -163,15 +167,15 @@ header .nav-btn {
 	  right: 2rem;
 	}
   
-	.navComponen a {
+	.navComponent a {
 	  font-size: 18px;
 	}
 
-  .navComponen{
+  .navComponent{
+    padding-left: 0%;
     margin-left: 0;
   }
   header{
-    margin-top: 10px;
     height:60px
   }
    .logo-header{

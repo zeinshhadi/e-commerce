@@ -9,7 +9,6 @@ function Registration() {
     username: "",
     email: "",
     password: "",
-    location: "",
   });
 
   const [confirmPassword, setConfirmPassword] = useState("");
@@ -19,7 +18,7 @@ function Registration() {
     emailError: "",
     passwordError: "",
     confirmPasswordError: "",
-    locationError: "",
+
   });
 
   const navigate = useNavigate();
@@ -87,7 +86,7 @@ function Registration() {
         emailError: emailErrors.join(", "),
         passwordError: passwordErrors.join(", "),
         confirmPasswordError: "",
-        locationError: "",
+       
       });
       return;
     }
@@ -217,24 +216,7 @@ function Registration() {
                     </span>
                   )}
                 </div>
-                <div className="form-group">
-                  <label htmlFor="location">Location:</label>
-                  <input
-                    type="text"
-                    name="location"
-                    value={formData.location}
-                    onChange={handleChange}
-                    className={`form-control ${
-                      validationErrors.locationError ? "error" : ""
-                    }`}
-                    required
-                  />
-                  {validationErrors.locationError && (
-                    <span className="error-message">
-                      {validationErrors.locationError}
-                    </span>
-                  )}
-                </div>
+                
                 <button
                   type="submit"
                   className="btn btn-primary"
